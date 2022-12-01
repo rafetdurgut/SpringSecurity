@@ -2,6 +2,7 @@ package com.example.springsecurity;
 
 import com.example.springsecurity.models.User;
 import com.example.springsecurity.models.UserRole;
+import com.example.springsecurity.services.JWToken;
 import com.example.springsecurity.services.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -37,6 +38,7 @@ public class SpringSecurityApplication {
             userService.saveUser(new User(null,"rafet","rdurgut","12345",new ArrayList<>()));
 
             userService.addRoleToUser("rdurgut","ROLE_USER");
+            userService.addRoleToUser("rdurgut","ROLE_ADMIN");
 
         };
     }
