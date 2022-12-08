@@ -12,6 +12,8 @@ import java.util.Collection;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Inheritance(strategy= InheritanceType.TABLE_PER_CLASS)
+
 public class User {
     @Id
     @GeneratedValue
