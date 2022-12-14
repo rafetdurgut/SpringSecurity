@@ -22,7 +22,6 @@ public class TodoList {
     private Long id;
 
     private String title;
-    @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
     private User user;
     @OneToMany(mappedBy = "todoList")

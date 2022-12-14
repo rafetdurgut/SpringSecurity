@@ -18,6 +18,7 @@ import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -69,5 +70,12 @@ public class UserService implements UserDetailsService {
         Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
         user.getRoles().forEach(userRole -> authorities.add(new SimpleGrantedAuthority(userRole.getName())));
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), authorities);
+    }
+
+    public User getUserById(Long id) {
+        Optional<User> user = userRepository.findById(id);
+        if(user == null)
+            throw new UsernameNotFoundException("Username not found!");
+        return user.get();
     }
 }

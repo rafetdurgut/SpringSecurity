@@ -4,17 +4,20 @@ import com.example.springsecurity.models.Comment;
 import com.example.springsecurity.models.Task;
 import com.example.springsecurity.repos.CommentRepository;
 import com.example.springsecurity.repos.TaskRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class TaskService {
     private final TaskRepository taskRepository;
     private final CommentRepository commentRepository;
+
+    public TaskService(TaskRepository taskRepository, CommentRepository commentRepository) {
+        this.taskRepository = taskRepository;
+        this.commentRepository = commentRepository;
+    }
 
     public void addTask(Task task)
     {

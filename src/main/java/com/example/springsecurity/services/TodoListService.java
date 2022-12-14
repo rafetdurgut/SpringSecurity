@@ -1,16 +1,17 @@
 package com.example.springsecurity.services;
 
 import com.example.springsecurity.models.TodoList;
-import com.example.springsecurity.repos.CommentRepository;
-import com.example.springsecurity.repos.TaskRepository;
 import com.example.springsecurity.repos.TodoListRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+@Service("todoListService")
 @Slf4j
 @RequiredArgsConstructor
 public class TodoListService {

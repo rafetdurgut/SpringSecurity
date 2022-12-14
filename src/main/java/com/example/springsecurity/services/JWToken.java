@@ -21,6 +21,7 @@ import static java.util.Arrays.stream;
 public class JWToken {
     public final String secretKey = "STP";
     public final String Issuer = "localhost";
+
     public String  generateToken(User user, int validity){
         Algorithm algorithm = Algorithm.HMAC256(secretKey);
         String access_token = JWT.create()
